@@ -13,7 +13,7 @@ import java.sql.Statement;
 
 public class Dbutil {
 		
-		private String dbUrl="jdbc:mysql://localhost:3306/db_commodity?useUnicode=true&characterEncoding=utf8"; // 数据库连接地址
+		private String dbUrl="jdbc:mysql://localhost:3306/commodity?useUnicode=true&characterEncoding=utf8"; // 数据库连接地址
 	//"jdbc:mysql://localhost:3306/自己定义的数据库名称?useUnicode=true&characterEncoding=utf8"
 		private String dbUserName="root"; // 用户名
 

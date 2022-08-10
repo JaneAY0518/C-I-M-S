@@ -378,7 +378,7 @@ public class Run {
         System.out.print("产地:");
         Place = sc.next();
         //插入商品信息的sql语句
-        String sql="insert into Goods values('"+Id+"','"+Name+"','"+Barcode+"','"+Place+"')";
+        String sql="insert into goods values('"+Id+"','"+Name+"','"+Barcode+"','"+Place+"')";
         //调用Ubutil类来连接数据库并且执行相关sql语句的操作
         try {
         	Connection con=dbUtil.getCon();
@@ -412,7 +412,7 @@ public class Run {
 		        Id = sc.nextLine();
 
 		        // 在数据库查询商品信息的sql语句
-		        String sql1="select * from Goods where Id="+Id;
+		        String sql1="select * from goods where Goods_id="+Id;
 		        
 		      //调用Ubutil类来连接数据库并且执行相关sql语句的操作
 		        Dbutil dbUtil1=new Dbutil();
@@ -433,7 +433,7 @@ public class Run {
 		        	Name = sc.next();
 		        	//根据每一个要修改的信息进行相关sql语句的修改
 		        	if(!Name.equals("-")) {
-		        		String sql2="Update Goods set Name='"+Name+"' where Id='"+Id+"'";
+		        		String sql2="Update goods set Goods_name='"+Name+"' where Goods_id='"+Id+"'";
 		        		Dbutil dbUtil2=new Dbutil();
 		        		try {
 		        			Connection con2=dbUtil2.getCon();
@@ -449,7 +449,7 @@ public class Run {
 		        	System.out.print("商品条码:");
 		        	Barcode = sc.next();
 		        	if(!Barcode.equals("-")) {
-		        		String sql3="Update Goods set Barcode='"+Barcode+"' where Id='"+Id+"'";
+		        		String sql3="Update goods set Goods_barcode='"+Barcode+"' where Goods_id='"+Id+"'";
 		        		Dbutil dbUtil2=new Dbutil();
 		        		try {
 		        			Connection con2=dbUtil2.getCon();
@@ -465,7 +465,7 @@ public class Run {
 		        	System.out.print("产地:");
 		        	Place = sc.next();
 		        	if(!Place.equals("-")) {
-		        		String sql4="Update Goods set Place='"+Place+"' where Id='"+Id+"'";
+		        		String sql4="Update goods set Production_place='"+Place+"' where Goods_id='"+Id+"'";
 		        		Dbutil dbUtil2=new Dbutil();
 		        		try {
 		        			Connection con2=dbUtil2.getCon();
@@ -499,7 +499,7 @@ public class Run {
 		        Id = sc.nextLine();
 		        
 		     // 在数据库查询商品信息的sql语句
-		        String sql1="select * from Goods where Id='"+Id+"'";
+		        String sql1="select * from goods where Goods_id='"+Id+"'";
 		       
 		      //调用Ubutil类来连接数据库并且执行相关sql语句的操作
 		        Dbutil dbUtil1=new Dbutil();
@@ -516,7 +516,7 @@ public class Run {
 					//再用删除的sql语句来删除相关的记录
 					Dbutil dbUtil2=new Dbutil();
 		    		try {
-		    			String sql2="delete from Goods where Id='"+Id+"'";
+		    			String sql2="delete from goods where Goods_id='"+Id+"'";
 		    			Connection con2=dbUtil2.getCon();
 		    	        java.sql.Statement stmt2=con2.createStatement();
 		    	        int count2=stmt2.executeUpdate(sql2);
@@ -543,7 +543,7 @@ public class Run {
 				boolean Result;
 		    
 		        // 在数据库查询全部商品信息的sql语句
-		        String sql1="select * from Goods";
+		        String sql1="select * from goods";
 		        
 		      //调用Ubutil类来连接数据库并且执行相关sql语句的操作
 		        Dbutil dbUtil1=new Dbutil();
@@ -557,8 +557,8 @@ public class Run {
 			    		String Name=count1.getString(2);
 			    		String Barcode=count1.getString(3);
 			    		String Place=count1.getString(4);
-			    		System.out.println("ID\\Name\\Barcode\\Place");
-			    		System.out.println(ID+"\\"+Name+"\\"+Barcode+"\\"+Place);
+			    		System.out.println("Goods_id\\Goods_barcode\\Goods_name\\Production_place");
+			    		System.out.println(ID+"\\"+Barcode+"\\"+Name+"\\"+Place);
 			        }
 			        //关闭资源
 			        stmt1.close();
@@ -599,7 +599,7 @@ public class Run {
 		System.out.print("进货日期:");
 		Date = sc.next();
 		
-		String sql="insert into Purchase values('"+PId+"','"+GId+"','"+Price+"','"+Num+"','"+Money+"','"+Date+"')";
+		String sql="insert into purchase values('"+PId+"','"+GId+"','"+Price+"','"+Num+"','"+Money+"','"+Date+"')";
 		        
 		Dbutil dbUtil=new Dbutil();
 		try {
@@ -635,7 +635,7 @@ public class Run {
         PId = sc.nextLine();
 
         // 在数据库查询商品信息
-        String sql1="select * from Purchase where PId='"+PId+"'";
+        String sql1="select * from purchase where Purchase_id='"+PId+"'";
         
         
         Dbutil dbUtil1=new Dbutil();
@@ -653,7 +653,7 @@ public class Run {
         	System.out.print("商品编号:");
     		GId = sc.next();
         	if(!GId.equals("-")) {
-        		String sql2="Update Purchase set GId='"+GId+"' where PId='"+PId+"'";
+        		String sql2="Update purchase set Goods_id='"+GId+"' where Purchase_id='"+PId+"'";
         		Dbutil dbUtil2=new Dbutil();
         		try {
         			Connection con2=dbUtil2.getCon();
@@ -669,7 +669,7 @@ public class Run {
         	System.out.print("进货单价:");
     		Price = sc.next();
         	if(!Price.equals("-")) {
-        		String sql3="Update Purchase set Price='"+Price+"' where PId='"+PId+"'";
+        		String sql3="Update purchase set Purchase_price='"+Price+"' where Purchase_id='"+PId+"'";
         		Dbutil dbUtil2=new Dbutil();
         		try {
         			Connection con2=dbUtil2.getCon();
@@ -685,7 +685,7 @@ public class Run {
         	System.out.print("进货数量:");
     		Num = sc.next();
         	if(!Num.equals("-")) {
-        		String sql4="Update Purchase set Num='"+Num+"' where PId='"+PId+"'";
+        		String sql4="Update purchase set Purchase_num='"+Num+"' where Purchase_id='"+PId+"'";
         		Dbutil dbUtil2=new Dbutil();
         		try {
         			Connection con2=dbUtil2.getCon();
@@ -701,7 +701,7 @@ public class Run {
         	System.out.print("进货金额:");
     		Money = sc.next();
     		if(!Money.equals("-")) {
-        		String sql4="Update Purchase set Money='"+Money+"' where PId='"+PId+"'";
+        		String sql4="Update purchase set Purchase_money='"+Money+"' where Purchase_id='"+PId+"'";
         		Dbutil dbUtil2=new Dbutil();
         		try {
         			Connection con2=dbUtil2.getCon();
@@ -718,7 +718,7 @@ public class Run {
     		System.out.print("进货日期:");
     		Date = sc.next();
     		if(!Date.equals("-")) {
-        		String sql4="Update Purchase set Date='"+Date+"' where PId='"+PId+"'";
+        		String sql4="Update purchase set Purchase_date='"+Date+"' where Purchase_id='"+PId+"'";
         		Dbutil dbUtil2=new Dbutil();
         		try {
         			Connection con2=dbUtil2.getCon();
@@ -752,7 +752,7 @@ public class Run {
         PId = sc.nextLine();
         
      // 在数据库查询商品信息
-        String sql1="select * from Purchase where PId='"+PId+"'";
+        String sql1="select * from purchase where Purchase_id='"+PId+"'";
         
         
         Dbutil dbUtil1=new Dbutil();
@@ -812,7 +812,7 @@ public class Run {
 		Email = sc.next();
 		
 		
-		String sql="insert into Client values('"+Id+"','"+Name+"','"+Mobile+"','"+Address+"','"+Email+"')";
+		String sql="insert into client values('"+Id+"','"+Name+"','"+Mobile+"','"+Address+"','"+Email+"')";
 		        
 		Dbutil dbUtil=new Dbutil();
 		try {
@@ -847,7 +847,7 @@ public class Run {
         Id = sc.nextLine();
 
         // 在数据库查询商品信息
-        String sql1="select * from Client where Id='"+Id+"'";
+        String sql1="select * from client where Client_id='"+Id+"'";
         
         
         Dbutil dbUtil1=new Dbutil();
@@ -865,7 +865,7 @@ public class Run {
         	System.out.print("客户姓名:");
     		Name = sc.next();
         	if(!Name.equals("-")) {
-        		String sql3="Update Client set Name='"+Name+"' where Id='"+Id+"'";
+        		String sql3="Update client set Client_name='"+Name+"' where Client_id='"+Id+"'";
         		Dbutil dbUtil2=new Dbutil();
         		try {
         			Connection con2=dbUtil2.getCon();
@@ -881,7 +881,7 @@ public class Run {
         	System.out.print("联系电话:");
     		Mobile = sc.next();
         	if(!Mobile.equals("-")) {
-        		String sql4="Update Client set Mobile='"+Mobile+"' where Id='"+Id+"'";
+        		String sql4="Update client set Mobile='"+Mobile+"' where Client_id='"+Id+"'";
         		Dbutil dbUtil2=new Dbutil();
         		try {
         			Connection con2=dbUtil2.getCon();
@@ -897,7 +897,7 @@ public class Run {
         	System.out.print("地址:");
     		Address = sc.next();
     		if(!Address.equals("-")) {
-        		String sql4="Update Client set Address='"+Address+"' where Id='"+Id+"'";
+        		String sql4="Update client set Address='"+Address+"' where Client_id='"+Id+"'";
         		Dbutil dbUtil2=new Dbutil();
         		try {
         			Connection con2=dbUtil2.getCon();
@@ -914,7 +914,7 @@ public class Run {
     		System.out.print("邮箱:");
     		Email = sc.next();
     		if(!Email.equals("-")) {
-        		String sql4="Update Client set Email='"+Email+"' where Id='"+Id+"'";
+        		String sql4="Update client set Email='"+Email+"' where Client_id='"+Id+"'";
         		Dbutil dbUtil2=new Dbutil();
         		try {
         			Connection con2=dbUtil2.getCon();
@@ -947,7 +947,7 @@ public class Run {
         Id = sc.nextLine();
         
      // 在数据库查询商品信息
-        String sql1="select * from Client where Id='"+Id+"'";
+        String sql1="select * from client where Client_id='"+Id+"'";
         
         
         Dbutil dbUtil1=new Dbutil();
@@ -962,7 +962,7 @@ public class Run {
 			System.out.println("可以继续执行操作...\n");
 			Dbutil dbUtil2=new Dbutil();
     		try {
-    			String sql2="delete from Client where Id='"+Id+"'";
+    			String sql2="delete from client where Client_id='"+Id+"'";
     			Connection con2=dbUtil2.getCon();
     	        java.sql.Statement stmt2=con2.createStatement();
     	        int count2=stmt2.executeUpdate(sql2);
@@ -1012,7 +1012,7 @@ public class Run {
 		System.out.print("销售日期:");
 		Date = sc.next();
 		
-		String sql="insert into Sale values('"+SId+"','"+GId+"','"+CId+"','"+Price+"','"+Num+"','"+Sum+"','"+Date+"')";
+		String sql="insert into sale values('"+SId+"','"+GId+"','"+CId+"','"+Price+"','"+Num+"','"+Sum+"','"+Date+"')";
 		        
 		Dbutil dbUtil=new Dbutil();
 		try {
@@ -1049,7 +1049,7 @@ public class Run {
         SId = sc.nextLine();
 
         // 在数据库查询商品信息
-        String sql1="select * from Sale where SId='"+SId+"'";
+        String sql1="select * from sale where Sale_id='"+SId+"'";
         
         
         Dbutil dbUtil1=new Dbutil();
@@ -1067,7 +1067,7 @@ public class Run {
         	System.out.print("商品编号:");
     		GId = sc.next();
         	if(!GId.equals("-")) {
-        		String sql3="Update Sale set GId='"+GId+"' where SId='"+SId+"'";
+        		String sql3="Update sale set Goods_id='"+GId+"' where Sale_id='"+SId+"'";
         		Dbutil dbUtil2=new Dbutil();
         		try {
         			Connection con2=dbUtil2.getCon();
@@ -1083,7 +1083,7 @@ public class Run {
         	System.out.print("客户编号:");
     		CId = sc.next();
         	if(!CId.equals("-")) {
-        		String sql4="Update Sale set CId='"+CId+"' where SId='"+SId+"'";
+        		String sql4="Update sale set Client_id='"+CId+"' where Sale_id='"+SId+"'";
         		Dbutil dbUtil2=new Dbutil();
         		try {
         			Connection con2=dbUtil2.getCon();
@@ -1099,7 +1099,7 @@ public class Run {
         	System.out.print("销售单价:");
     		Price = sc.next();
     		if(!Price.equals("-")) {
-        		String sql4="Update Sale set Price='"+Price+"' where SId='"+SId+"'";
+        		String sql4="Update sale set Sale_price='"+Price+"' where Sale_id='"+SId+"'";
         		Dbutil dbUtil2=new Dbutil();
         		try {
         			Connection con2=dbUtil2.getCon();
@@ -1116,7 +1116,7 @@ public class Run {
     		System.out.print("销售数量:");
     		Num = sc.next();
     		if(!Num.equals("-")) {
-        		String sql4="Update Sale set Num='"+Num+"' where SId='"+SId+"'";
+        		String sql4="Update sale set Sale_num='"+Num+"' where Sale_id='"+SId+"'";
         		Dbutil dbUtil2=new Dbutil();
         		try {
         			Connection con2=dbUtil2.getCon();
@@ -1132,7 +1132,7 @@ public class Run {
     		System.out.print("销售金额:");
     		Sum = sc.next();
     		if(!Sum.equals("-")) {
-        		String sql4="Update Sale set Sum='"+Sum+"' where SId='"+SId+"'";
+        		String sql4="Update sale set Sale_sum='"+Sum+"' where Sale_id='"+SId+"'";
         		Dbutil dbUtil2=new Dbutil();
         		try {
         			Connection con2=dbUtil2.getCon();
@@ -1148,7 +1148,7 @@ public class Run {
     		System.out.print("销售日期:");
     		Date = sc.next();
     		if(!Date.equals("-")) {
-        		String sql4="Update Sale set Date='"+Date+"' where SId='"+SId+"'";
+        		String sql4="Update sale set Sale_date='"+Date+"' where Sale_id='"+SId+"'";
         		Dbutil dbUtil2=new Dbutil();
         		try {
         			Connection con2=dbUtil2.getCon();
@@ -1181,7 +1181,7 @@ public class Run {
         SId = sc.nextLine();
         
      // 在数据库查询商品信息
-        String sql1="select * from Sale where SId='"+SId+"'";
+        String sql1="select * from sale where Sale_id='"+SId+"'";
         
         
         Dbutil dbUtil1=new Dbutil();
@@ -1196,7 +1196,7 @@ public class Run {
 			System.out.println("可以继续执行操作...\n");
 			Dbutil dbUtil2=new Dbutil();
     		try {
-    			String sql2="delete from Sale where SId='"+SId+"'";
+    			String sql2="delete from sale where Sale_id='"+SId+"'";
     			Connection con2=dbUtil2.getCon();
     	        java.sql.Statement stmt2=con2.createStatement();
     	        int count2=stmt2.executeUpdate(sql2);
@@ -1221,7 +1221,7 @@ public class Run {
 		boolean Result;
     
         // 在数据库查询全部商品信息
-        String sql1="select * from Client";
+        String sql1="select * from client";
         
         Dbutil dbUtil1=new Dbutil();
 		try {
@@ -1234,7 +1234,7 @@ public class Run {
 	    		String Mobile=count1.getString(3);
 	    		String Address=count1.getString(4);
 	    		String Email=count1.getString(5);
-	    		System.out.println("ID\\Name\\Mobile\\Address\\Email");
+	    		System.out.println("Client_id\\Client_name\\Mobile\\Address\\Email");
 	    		System.out.println(ID+"\\"+Name+"\\"+Mobile+"\\"+Address+"\\"+Email);
 	        }
 	        stmt1.close();
@@ -1255,7 +1255,7 @@ public class Run {
 		boolean Result;
     
         // 在数据库查询全部商品信息
-        String sql1="select * from Purchase";
+        String sql1="select * from purchase";
         
         Dbutil dbUtil1=new Dbutil();
 		try {
@@ -1269,7 +1269,7 @@ public class Run {
 	    		String Num=count1.getString(4);
 	    		String Money=count1.getString(5);
 	    		String Date=count1.getString(5);
-	    		System.out.println("PId\\GId\\Price\\Num\\Money\\Date");
+	    		System.out.println("Purchase_id\\Goods_id\\Purchase_price\\Purchase_num\\Purchase_money\\Purchase_date");
 	    		System.out.println(PId+"\\"+GId+"\\"+Price+"\\"+Num+"\\"+Money+"\\"+Date);
 	        }
 	        stmt1.close();
@@ -1289,7 +1289,7 @@ public class Run {
 		String Id;
     
         // 在数据库查询全部商品信息
-        String sql1="select * from Sale";
+        String sql1="select * from sale";
         
         Dbutil dbUtil1=new Dbutil();
 		try {
@@ -1304,8 +1304,8 @@ public class Run {
 	    		String Num=count1.getString(5);
 	    		String Sum=count1.getString(5);
 	    		String Date=count1.getString(5);;
-	    		System.out.println("SId\\GId\\CId\\Price\\Money\\Num\\Sum\\Date");
-	    		System.out.println(SId+"\\"+GId+"\\"+CId+"\\"+Price+"\\"+Num+"\\"+Date+"\\"+Sum+"\\"+Date);
+	    		System.out.println("Sale_id\\Goods_id\\Client_id\\Sale_price\\Sale_num\\Sale_sum\\Sale_date");
+	    		System.out.println(SId+"\\"+GId+"\\"+CId+"\\"+Price+"\\"+Num+"\\"+Sum+"\\"+Date);
 	        }
 	        stmt1.close();
 	        dbUtil1.closeCon(con1);
