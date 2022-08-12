@@ -6,4 +6,4 @@
 # 数据库设计 【DATADASE DESIGN】
 
 ## Ⅰ．壹．全局E-R图的设计【Design Of Global E-R Graph】
-   ![Design Of Global E-R Graph](https://github.com/JaneAY0518/C-I-M-S/raw/master/只能终端实现版(JAVA+MYSQL)/picture/Design Of Global E-R Graph.png)
+<img src="https://github.com/JaneAY0518/C-I-M-S/blob/master/%E5%8F%AA%E8%83%BD%E7%BB%88%E7%AB%AF%E5%AE%9E%E7%8E%B0%E7%89%88(JAVA%2BMYSQL)/picture/Design%20Of%20Global%20E-R%20Graph.png" width="500" height="500">
