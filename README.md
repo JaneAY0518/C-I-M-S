@@ -12,7 +12,7 @@
 <img src="https://github.com/JaneAY0518/C-I-M-S/blob/master/%E5%8F%AA%E8%83%BD%E7%BB%88%E7%AB%AF%E5%AE%9E%E7%8E%B0%E7%89%88(JAVA%2BMYSQL)/picture/Goods%20Information%20Table.png" width="500" height="300">   
 
 ##### （二）商品信息表的SQL语句【SQL Statement Of Commodity Information Table】
-```MYSQL
+```SQL
 CREATE TABLE Goods(
  Goods_id INT PRIMARY KEY auto_increment,
  Goods_barcode VARCHAR(20) NOT NULL ,
@@ -25,7 +25,7 @@ CREATE TABLE Goods(
 <img src="https://github.com/JaneAY0518/C-I-M-S/blob/master/%E5%8F%AA%E8%83%BD%E7%BB%88%E7%AB%AF%E5%AE%9E%E7%8E%B0%E7%89%88(JAVA%2BMYSQL)/picture/Client%20Information%20Table.png" width="500" height="300">   
 
 ##### （二）客人信息表的SQL语句【SQL Statement Of Client Information Table】
-```MYSQL
+```SQL
 CREATE TABLE Client(
 	Client_id INT PRIMARY KEY auto_increment,
 	Client_name VARCHAR(20) NOT NULL ,
@@ -39,7 +39,7 @@ CREATE TABLE Client(
 <img src="https://github.com/JaneAY0518/C-I-M-S/blob/master/%E5%8F%AA%E8%83%BD%E7%BB%88%E7%AB%AF%E5%AE%9E%E7%8E%B0%E7%89%88(JAVA%2BMYSQL)/picture/Purchase%20Information%20Table.png" width="500" height="600">  
 
 ##### （二）进货信息表的SQL语句【SQL Statement Of Purchase Information Table】
-```MYSQL
+```SQL
 CREATE TABLE Purchase(
 	Purchase_id INT PRIMARY KEY auto_increment,
 	Goods_id INT NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE Purchase(
 <img src="https://github.com/JaneAY0518/C-I-M-S/blob/master/%E5%8F%AA%E8%83%BD%E7%BB%88%E7%AB%AF%E5%AE%9E%E7%8E%B0%E7%89%88(JAVA%2BMYSQL)/picture/Sale%20Information%20Table.png" width="500" height="300">  
 
 ##### （二）销售信息表的SQL语句【SQL Statement Of Sale Information Table】
-```MYSQL
+```SQL
 CREATE TABLE Sale(
 	Sale_id INT PRIMARY KEY auto_increment,
 	Goods_id INT NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE Sale(
 <img src="https://github.com/JaneAY0518/C-I-M-S/blob/master/%E5%8F%AA%E8%83%BD%E7%BB%88%E7%AB%AF%E5%AE%9E%E7%8E%B0%E7%89%88(JAVA%2BMYSQL)/picture/Stock%20Information%20Table.png" width="500" height="100">  
 
 ##### （二）库存信息表的SQL语句【SQL Statement Of Stock Information Table】
-```MYSQL
+```SQL
 CREATE TABLE Stock(
 	Goods_id INT NOT NULL,
 	Stock_num INT NOT NULL CHECK(Stock_num >=0),
