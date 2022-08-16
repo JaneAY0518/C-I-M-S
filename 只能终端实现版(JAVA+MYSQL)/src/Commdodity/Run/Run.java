@@ -1312,7 +1312,7 @@ public class Run {
 			System.out.println("数据库连接成功！\n");
 			System.out.println("查询信息成功！\n");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// TODO Auto-generated cat	ch block
 			e.printStackTrace();
 			System.out.println("数据库连接失败\n");
 			System.out.println("核对信息失败!\n");
